@@ -1,6 +1,6 @@
-## Project: "Game Releases" (name to be updated!)
-Site allows a user to input a date and see what games will be released during
-that time.  Functionality will be extended provided time is available!
+## GameScope
+GameScope allows a user to input a date and see what games will be released during
+that time.  Additional functionality will be made available as time permits.
 
 
 ## Created by:
