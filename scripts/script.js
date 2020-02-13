@@ -43,41 +43,28 @@ let cardContainer;
 
 let createTaskCard = (task) => {
 
-//     <div class="card">
-//     <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-//     <div class="card-body">
-//       <h5 class="card-title">Card title that wraps to a new line</h5>
-//       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-//     </div>
-//   </div><div class="card">
+    let card = document.createElement('div');
+    card.className = 'card';
 
+    let cardImg = document.createElement('div');
+    cardImg.innerHTML = `<img src="${task.image.small_url}" class="card-img-top"></img>`
 
-let card = document.createElement('div');
-card.className = 'card';
+    let cardBody = document.createElement('div');
+    cardBody.className = 'card-body';
 
-let cardImg = document.createElement('div');
-cardImg.classname = "card-img-top"
-// let imgTrimmed = substring(0,task.image.medium_url.length-1)
-cardImg.innerHTML = `<img src="${task.image.small_url}"></img>`
-// cardImg.src = task.image.medium_url.splice(0,task.image.medium_url.length-)
+    let title = document.createElement('h5');
+    title.innerText = task.name;
+    title.className = 'card-title';
 
-let cardBody = document.createElement('div');
-cardBody.className = 'card-body';
+    let cardText = document.createElement('p');
+    cardText.innerText = task.deck;
+    cardText.className = 'card-text';
 
-let title = document.createElement('h5');
-title.innerText = task.name;
-title.className = 'card-title';
-
-let cardText = document.createElement('p');
-cardText.innerText = task.deck;
-cardText.className = 'card-text';
-
-
-cardBody.appendChild(title);
-cardBody.appendChild(cardText);
-card.appendChild(cardBody);
-card.appendChild(cardImg);
-cardContainer.appendChild(card);
+    cardBody.appendChild(title);
+    cardBody.appendChild(cardText);
+    card.appendChild(cardImg);
+    card.appendChild(cardBody);
+    cardContainer.appendChild(card);
 
 }
 
