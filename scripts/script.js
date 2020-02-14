@@ -45,13 +45,28 @@ async function buildCards() {
         title.className = 'card-title';
 
         let cardText = document.createElement('p');
-        cardText.innerText += task.deck;
+        if(task.deck){
+            cardText.innerText += task.deck;
+        } else {
+            cardText.innerText = "";
+        }
         cardText.className = 'card-text';
 
         let cardText2 = document.createElement('p');
-        let month = [ "January", "February", "March", "April", "May", "June", 
+        let month = [ "none", "January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December"];
-        cardText2.innerText = "Expected Release: " + month[task.expected_release_month] + " " + task.expected_release_day + ", " + task.expected_release_year
+
+        if(task.expected_release_month  && task.expected_release_day){
+            cardText2.innerText = "Expected Release: " + month[task.expected_release_month] + " " + task.expected_release_day + ", " + task.expected_release_year
+        } else if(task.expected_release_month){
+            cardText2.innerText = "Expected Release: " + month[task.expected_release_month] + " " + task.expected_release_year
+        } else if (task.expected_release_year){
+            cardText2.innerText = "Expected Release: " + task.expected_release_year + "."
+        }
+        else {
+            cardText2.innerText = "Expected Release: " + (task.expected_release_year || inputYear.value)
+        }
+
         cardText2.className = 'card-text';
 
         let cardText3 = document.createElement('p');
@@ -62,7 +77,7 @@ async function buildCards() {
             cardText3.innerText += ` ${platform.name}`
 
         })
-        // cardText3.innerText = "Platforms: " + task.platforms[0].name
+
         cardText3.className = "card-text";
 
 

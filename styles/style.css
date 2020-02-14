@@ -36,11 +36,11 @@ html {
 }
 
 div.card_wrapper {
-    width:60%;
+    width:65%;
     display:inline-flex;
     height:auto;
     margin-left:100px;
-    margin-top: 100px;
+    margin-top: 0;
 }
 
 div.btn-group-vertical{
@@ -50,11 +50,17 @@ div.btn-group-vertical{
      overflow: hidden;
  }
 
- .button_group{
+ div.button_group{
      margin-left: 30px;
-     display: inline-block;
+     display: inline-flex;
+     align-items: flex-start;
  }
 
  .button_group .btn {
      width: 175px;
+ }
+
+ .content { 
+     margin-top: 100px;
+     display:flex;
  }
