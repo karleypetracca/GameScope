@@ -14,7 +14,6 @@ async function queryUrl() {
     await response.results.map(element => {
         newObject.push(element);
     })
-    // filterFunct(newObject)
 
     return newObject;
 };
