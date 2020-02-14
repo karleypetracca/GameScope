@@ -6,14 +6,16 @@ const apiKey = "6b4ac05b6e77823f1510fcb200250f6e07e11241";
 // function lists
 
 async function queryUrl() {
-    let newObject = []
+    let newObject = [];
     let inputYear = document.querySelector("#inputYear");
     // Non-proxy URL = `https://www.giantbomb.com/api/games/?api_key=${apiKey}&format=json&filter=expected_release_year:${inputYear.value}`;
     const response = await get(`http://localhost:8010/proxy/api/games/?api_key=${apiKey}&format=json&filter=expected_release_year:${inputYear.value}`);
-    
+
     await response.results.map(element => {
         newObject.push(element);
     })
+    // filterFunct(newObject)
+
     return newObject;
 };
 
@@ -33,7 +35,7 @@ async function buildCards() {
         card.className = 'card';
 
         let cardImg = document.createElement('div');
-        cardImg.innerHTML = `<img src="${task.image.small_url}" class="card-img-top"></img>`
+        cardImg.innerHTML = `<img src="${task.image.small_url}" class="card-img-top"></img>`;
 
         let cardBody = document.createElement('div');
         cardBody.className = 'card-body';
@@ -60,16 +62,53 @@ async function buildCards() {
             createTaskCard(task);
         });
     }
-    
+
     await initListOfTasks();
 }
 
 
 // event listeners
 
-$("#buttonSearch").click(function() {
-    event.preventDefault();
-    console.log("Search button clicked");
-    // filter(queryUrl);
-    buildCards();
+// $("#buttonSearch").click(function() {
+//     event.preventDefault();
+//     console.log("Search button clicked");
+//     // filter(queryUrl);
+//     buildCards();
+// });
+
+$("#filterYear").children().each(function() {
+    let inputYear = document.querySelector("#inputYear");
+    console.log($(this));
+    $(this).click(async function() {
+        event.preventDefault();
+        console.log("Year button clicked " + $(this).text());
+        inputYear.value = $(this).text();
+        $("#mainYear").html($(this).text());
+        await buildCards();
+    })
+});
+
+$("#filterMonth").children().each(function() {
+    let inputMonth = document.querySelector("#inputMonth");
+    console.log($(this));
+    $(this).click(async function() {
+        event.preventDefault();
+        console.log("Month button clicked " + $(this).text());
+        inputMonth.value = $(this).text();
+        $("#mainMonth").html($(this).text());
+        await buildCards();
+    })
+});
+
+$("#filterPlatform").children().each(function() {
+    let inputPlatform = document.querySelector("#inputPlatform");
+    console.log($(this));
+    $(this).click(async function() {
+        event.preventDefault();
+        console.log("Platform button clicked " + $(this).text());
+        inputPlatform.value = $(this).text();
+        $("#mainPlatform").html($(this).text());
+        // $("#mainPlatform").css($(this).text());
+        await buildCards();
+    })
 });
