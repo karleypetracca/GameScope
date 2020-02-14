@@ -55,9 +55,8 @@ async function buildCards() {
         let cardText3 = document.createElement('p');
         cardText3.innerText = `Platforms:`
 
-        console.log("HEEELLLO", task)
+       
         await task.platforms.map(platform => {
-            console.log("PLAATTT",platform)
             cardText3.innerText += ` ${platform.name}`
 
         })
