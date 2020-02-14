@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title>GameScope</title>
 </head>
 <body>
-    <!-- Non Bootstrap items for testing - NEED TO INTEGRATE -->
+    <!-- Non Bootstrap items for testing - NEED TO INTEGRATE AND HIDE -->
     <input id="inputYear" value="2021">
     <input id="inputMonth" value="1">
     <input id="inputPlatform" value="PC">
@@ -17,14 +21,15 @@
     
     <!-- Bootstrap elements below -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">GameScope</a>
+        <a class="navbar-brand" href="index.html"><img
+        src="images/GameScope-logo-icon.png" id="siteIcon"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -49,7 +54,9 @@
       </nav>
       
       <div class="title">
-        <h1>GameScope</h1>
+        <div class="title img-wrapper">
+          <img id="siteLogo" src="images/GameScope-logo.png">
+        </div>
         <h4><em>Keep the release date in your crosshairs</em></h4>
       </div>
       <div class="button_group">
@@ -115,80 +122,11 @@
       </div>
       </div>
 
-
   <div class="card_wrapper">
 
     <div class="card-columns" id="card-container">
       
-      <!-- <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div><div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src=".../100px160/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div> -->
-     
+    
     </div>
   </div>  
 </body>

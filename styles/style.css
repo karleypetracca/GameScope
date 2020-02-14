@@ -10,9 +10,25 @@ html {
     margin: 0;
 }
 
+#siteIcon {
+    width: 40px;
+}
+
 .title {
-    margin-top:50px;
+    margin: 50px auto;
     text-align: center;
+}
+
+.title .img-wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+}
+
+#siteLogo {
+    width: 100%;
 }
 
 .title h1 {
@@ -25,7 +41,6 @@ div.card_wrapper {
     height:auto;
     margin-left:100px;
     margin-top: 100px;
-    
 }
 
 div.btn-group-vertical{
@@ -36,10 +51,10 @@ div.btn-group-vertical{
  }
 
  .button_group{
-     margin-left:30px;
+     margin-left: 30px;
      display: inline-block;
  }
 
  .button_group .btn {
-     width:200px;
+     width: 175px;
  }
