@@ -14,6 +14,8 @@ async function queryUrl() {
     await response.results.map(element => {
         newObject.push(element);
     })
+    // filterFunct(newObject)
+
     return newObject;
 };
 
@@ -67,39 +69,46 @@ async function buildCards() {
 
 // event listeners
 
-$("#buttonSearch").click(function() {
-    event.preventDefault();
-    console.log("Search button clicked");
-    // filter(queryUrl);
-    buildCards();
-});
+// $("#buttonSearch").click(function() {
+//     event.preventDefault();
+//     console.log("Search button clicked");
+//     // filter(queryUrl);
+//     buildCards();
+// });
 
 $("#filterYear").children().each(function() {
     let inputYear = document.querySelector("#inputYear");
     console.log($(this));
-    $(this).click(function() {
+    $(this).click(async function() {
         event.preventDefault();
         console.log("Year button clicked " + $(this).text());
         inputYear.value = $(this).text();
+        $("#mainYear").html($(this).text());
+        await buildCards();
     })
 });
 
 $("#filterMonth").children().each(function() {
     let inputMonth = document.querySelector("#inputMonth");
     console.log($(this));
-    $(this).click(function() {
+    $(this).click(async function() {
         event.preventDefault();
         console.log("Month button clicked " + $(this).text());
         inputMonth.value = $(this).text();
+        $("#mainMonth").html($(this).text());
+        await buildCards();
     })
 });
 
 $("#filterPlatform").children().each(function() {
     let inputPlatform = document.querySelector("#inputPlatform");
     console.log($(this));
-    $(this).click(function() {
+    $(this).click(async function() {
         event.preventDefault();
         console.log("Platform button clicked " + $(this).text());
         inputPlatform.value = $(this).text();
+        $("#mainPlatform").html($(this).text());
+        // $("#mainPlatform").css($(this).text());
+        await buildCards();
     })
 });
