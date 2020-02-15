@@ -14,10 +14,35 @@ async function queryUrl() {
     await response.results.map(element => {
         newObject.push(element);
     })
-    // filterFunct(newObject)
 
-    return newObject;
+    return await releaseDateFix(newObject);
 };
+
+function releaseDateFix(query) {
+    let fixedQuery = query.map(element => {
+        console.log(element);
+        if (element.original_release_date) {
+            console.log(element, element.original_release_date)
+            // check year
+            if (element.expected_release_year === null) {
+                element.expected_release_year = Number(element.original_release_date.substring(0,4));
+                console.log(element.expected_release_year, "success")
+            }
+            // check month
+            if (element.expected_release_month === null) {
+                element.expected_release_month = Number(element.original_release_date.substring(5,7));
+                console.log(element.expected_release_month, "success")
+            }
+            // check day
+            if (element.expected_release_day === null) {
+                element.expected_release_day = Number(element.original_release_date.substring(8));
+                console.log(element.expected_release_day, "success")
+            }
+        }
+        return element;
+    })
+    return fixedQuery;
+}
 
 async function buildCards() {
     let cardContainer = document.getElementById('card-container');
