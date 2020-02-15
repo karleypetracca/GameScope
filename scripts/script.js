@@ -35,7 +35,7 @@ async function buildCards() {
         card.className = 'card';
 
         let cardImg = document.createElement('div');
-        cardImg.innerHTML = `<img src="${task.image.small_url}" class="card-img-top"></img>`;
+        cardImg.innerHTML = `<a href=link.html><img src="${task.image.small_url}" class="card-img-top"></img></a>`;
 
         let cardBody = document.createElement('div');
         cardBody.className = 'card-body';
@@ -79,9 +79,6 @@ async function buildCards() {
         })
 
         cardText3.className = "card-text";
-
-
-
 
         cardBody.appendChild(title);
         cardBody.appendChild(cardText);

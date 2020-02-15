@@ -1,0 +1,66 @@
+html {
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+#siteIcon {
+    width: 40px;
+}
+
+.title {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.title .img-wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+}
+
+#siteLogo {
+    width: 100%;
+}
+
+.title h1 {
+    font-size: 100px;
+}
+
+div.card_wrapper {
+    width:65%;
+    display:inline-flex;
+    height:auto;
+    margin-left:100px;
+    margin-top: 0;
+}
+
+div.btn-group-vertical{
+    display: inline-flex;
+}
+ div.card-columns{
+     overflow: hidden;
+ }
+
+ div.button_group{
+     margin-left: 30px;
+     display: inline-flex;
+     align-items: flex-start;
+ }
+
+ .button_group .btn {
+     width: 175px;
+ }
+
+ .content { 
+     margin-top: 100px;
+     display:flex;
+ }
