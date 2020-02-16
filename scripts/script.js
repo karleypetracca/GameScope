@@ -10,9 +10,9 @@ const apiKey = "6b4ac05b6e77823f1510fcb200250f6e07e11241";
 async function queryUrl() {
     let newObject = [];
     let inputYear = document.querySelector("#inputYear");
-    // non proxy URL: `https://www.giantbomb.com/api/games/?api_key=${apiKey}&format=json&filter=expected_release_year:${inputYear}`;
+  
     
-    let apiUrl = await `http://localhost:8010/proxy/api/games/?api_key=${apiKey}&format=json&filter=expected_release_year:${inputYear.value}`;
+    let apiUrl = await `https://www.giantbomb.com/api/games/?api_key=${apiKey}&format=json&filter=expected_release_year:${inputYear.value}`;
 
     const response = await get(apiUrl);
     await response.results.map(element => {
@@ -146,7 +146,7 @@ async function buildCards() {
         card.className = 'card';
 
         let cardImg = document.createElement('div');
-        cardImg.innerHTML = `<img src="${task.image.small_url}" class="card-img-top"></img>`;
+        cardImg.innerHTML = `<a href=link.html><img src="${task.image.small_url}" title="${task.id}" class="card-img-top"></img></a>`;
 
         let cardBody = document.createElement('div');
         cardBody.className = 'card-body';
@@ -215,6 +215,8 @@ $("#filterYear").children().each(function() {
         inputYear.value = $(this).text();
         $("#mainYear").html("Year - " + $(this).text());
         await buildCards();
+       
+
     })
 });
 
@@ -231,6 +233,8 @@ $("#filterMonth").children().each(function() {
         $("#mainMonth").html("Month - " + $(this).text());
         $(this).addClass("active");
         await buildCards();
+       
+
     })
 });
 
@@ -244,4 +248,6 @@ $("#filterPlatform").children().each(function() {
         $("#mainPlatform").html("Platform - " + $(this).text());
         await buildCards();
     })
+
 });
+
