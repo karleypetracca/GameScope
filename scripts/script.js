@@ -146,7 +146,7 @@ async function buildCards() {
         card.className = 'card';
 
         let cardImg = document.createElement('div');
-        cardImg.innerHTML = `<a href=link.html><img src="${task.image.small_url}" title="${task.id}" class="card-img-top"></img></a>`;
+        cardImg.innerHTML = `<img src="${task.image.small_url}" title="${task.id}" class="card-img-top"></img>`;
 
         let cardBody = document.createElement('div');
         cardBody.className = 'card-body';
@@ -251,3 +251,39 @@ $("#filterPlatform").children().each(function() {
 
 });
 
+// let a = $(".image-card_top").on("click", function() {
+//     return this.title
+//     });
+
+
+function buildSiteObject (){
+    let a = $(document).on("click", ".card-img-top", function() { 
+        console.log(this.title)
+        return this.title
+    });
+    let objectUrl = `https://www.giantbomb.com/api/games/?api_key=0db701c3bf4b84594cb0b2282c255345428c9a87&format=json&filter=id:${a}`
+    console.log(objectUrl.name)
+}
+
+
+let a = $(document).on("click", ".card-img-top", function() { 
+    console.log(this.title)
+    console.log(buildSiteObject())
+
+});
+
+
+
+const searchUrl = `https://www.giantbomb.com/api/games/?api_key=0db701c3bf4b84594cb0b2282c255345428c9a87&format=json&filter=expected_release_year:2017,2018,2019,2020,2021,2022,2023`;
+
+const response =  get(searchUrl);
+
+const searchArray = []
+
+searchArray.push(response)
+
+console.log(searchArray)
+
+$( "#search_input " ).autocomplete({
+    source: searchArray
+  });
