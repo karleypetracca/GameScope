@@ -7,6 +7,15 @@ const apiKey = "6b4ac05b6e77823f1510fcb200250f6e07e11241";
 
 // FUNCTIONS //
 
+async function queryGameSelect(gameSelectId) {
+    let gameObject = [];
+    let gameSelectQuery = `https://www.giantbomb.com/api/game/${gameSelectId}/?api_key=${apiKey}&format=json`;
+    
+    const response = await get(gameSelectQuery);
+    gameObject = await response.results;
+    return gameObject;  
+}
+
 async function queryUrl() {
     let newObject = [];
     let inputYear = document.querySelector("#inputYear");
@@ -146,7 +155,18 @@ async function buildCards() {
         card.className = 'card';
 
         let cardImg = document.createElement('div');
+<<<<<<< HEAD
         cardImg.innerHTML = `<img src="${task.image.small_url}" title="${task.id}" class="card-img-top"></img>`;
+=======
+        cardImg.innerHTML = `<img src="${task.image.small_url}" title="${task.guid}" class="card-img-top">`;
+        
+        // create event listener for image
+        cardImg.addEventListener("click", async function(event) {
+            event.preventDefault();
+            localStorage.setItem("gameSelectId", task.guid);
+            window.location.href="link.html";
+        });
+>>>>>>> 79fe6b48efa366f5b64e74225c872927198caec0
 
         let cardBody = document.createElement('div');
         cardBody.className = 'card-body';
@@ -154,6 +174,13 @@ async function buildCards() {
         let title = document.createElement('h5');
         title.innerText = task.name;
         title.className = 'card-title';
+
+        // create event listener for image
+        title.addEventListener("click", async function(event) {
+            event.preventDefault();
+            localStorage.setItem("gameSelectId", task.guid);
+            window.location.href="link.html";
+        });
 
         let cardText = document.createElement('p');
         if(task.deck){
@@ -203,6 +230,8 @@ async function buildCards() {
     }
 }
 
+console.log()
+
 
 // EVENT LISTENERS //
 
@@ -215,8 +244,6 @@ $("#filterYear").children().each(function() {
         inputYear.value = $(this).text();
         $("#mainYear").html("Year - " + $(this).text());
         await buildCards();
-       
-
     })
 });
 
@@ -233,8 +260,6 @@ $("#filterMonth").children().each(function() {
         $("#mainMonth").html("Month - " + $(this).text());
         $(this).addClass("active");
         await buildCards();
-       
-
     })
 });
 
@@ -248,7 +273,6 @@ $("#filterPlatform").children().each(function() {
         $("#mainPlatform").html("Platform - " + $(this).text());
         await buildCards();
     })
-
 });
 
 // let a = $(".image-card_top").on("click", function() {
