@@ -14,9 +14,9 @@
 </head>
 <body>
     <!-- Non Bootstrap items for testing - NEED TO INTEGRATE AND HIDE -->
-    <input id="inputYear" value="2021" type="hidden">
-    <input id="inputMonth" value="1" type="hidden">
-    <input id="inputPlatform" value="PC" type="hidden">
+    <input id="inputYear" value="2020" type="hidden">
+    <input id="inputMonth" value="all" type="hidden">
+    <input id="inputPlatform" value="all" type="hidden">
     
     <!-- Bootstrap elements below -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -61,17 +61,17 @@
       <div class ="content">
       <div class="button_group">
       <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
-        <button type="button" class="btn btn-secondary">Filter</button>
+        <!-- <button type="button" class="btn btn-secondary">Filter</button> -->
 
         <div class="btn-group dropright">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainYear">
-            Year
+            Year - 2020
           </button>
           <div class="dropdown-menu" id="filterYear">
             <button class="dropdown-item" type="button">2017</button>
             <button class="dropdown-item" type="button">2018</button>
             <button class="dropdown-item" type="button">2019</button>
-            <button class="dropdown-item" type="button">2020</button>
+            <button class="dropdown-item active" type="button">2020</button>
             <button class="dropdown-item" type="button">2021</button>
             <button class="dropdown-item" type="button">2022</button>
             <button class="dropdown-item" type="button">2023</button>
@@ -83,6 +83,7 @@
             Month
           </button>
           <div class="dropdown-menu" id="filterMonth">
+            <button class="dropdown-item" type="button" value="all">All Months</button>
             <button class="dropdown-item" type="button" value="1">January</button>
             <button class="dropdown-item" type="button" value="2">February</button>
             <button class="dropdown-item" type="button" value="3">March</button>
@@ -103,10 +104,11 @@
             Platform 
           </button>
           <div class="dropdown-menu" id="filterPlatform">
-            <button class="dropdown-item" type="button">Xbox One</button>
-            <button class="dropdown-item" type="button">Playstation 4</button>
-            <button class="dropdown-item" type="button">Nintendo Switch</button>
-            <button class="dropdown-item" type="button">PC</button>
+            <button class="dropdown-item" type="button" value="all">All Platforms</button>
+            <button class="dropdown-item" type="button" value="Xbox One">Xbox One</button>
+            <button class="dropdown-item" type="button" value="PlayStation 4">PlayStation 4</button>
+            <button class="dropdown-item" type="button" value="Nintendo Switch">Nintendo Switch</button>
+            <button class="dropdown-item" type="button" value="PC">PC</button>
           </div>
         </div>
       </div>
