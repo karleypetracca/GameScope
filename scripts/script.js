@@ -62,6 +62,8 @@ async function filterQuery(gameQuery) {
 
     // callback function for filtering month
     function filterByMonth(gameQuery) {
+        
+
         let monthsFiltered = [],
             monthHasReleases = false;
         if (inputMonth.value === "all") {
@@ -161,6 +163,8 @@ async function buildCards() {
         cardImg.addEventListener("click", async function(event) {
             event.preventDefault();
             localStorage.setItem("gameSelectId", task.guid);
+            localStorage.setItem("Platform", cardText3.innerText);
+            localStorage.setItem("release date", cardText2.innerText);
             window.location.href="link.html";
         });
 
@@ -171,10 +175,12 @@ async function buildCards() {
         title.innerText = task.name;
         title.className = 'card-title';
 
-        // create event listener for image
+        // create event listener for title
         title.addEventListener("click", async function(event) {
             event.preventDefault();
             localStorage.setItem("gameSelectId", task.guid);
+            localStorage.setItem("Platform", cardText3.innerText);
+            localStorage.setItem("release date", cardText2.innerText);
             window.location.href="link.html";
         });
 
@@ -199,7 +205,7 @@ async function buildCards() {
         } else {
             cardText2.innerText = "Expected Release: " + (task.expected_release_year || inputYear.value);
         }
-
+        
         cardText2.className = 'card-text';
 
         let cardText3 = document.createElement('p');
@@ -213,7 +219,7 @@ async function buildCards() {
         } else {
             cardText3.innerText += ' Unknown';
         }
-
+       
         cardText3.className = "card-text";
 
         cardBody.appendChild(title);
