@@ -12,79 +12,89 @@ html {
 
 body {
     height: 100%;
-    background: linear-gradient(rgb(145, 151, 170), rgb(69, 73, 83)) no-repeat center center fixed;
+    background-color: linear-gradient(rgb(145, 151, 170), rgb(69, 73, 83));
+}
+
+#navbar {
+    background-color: rgb(49, 75, 122);
 }
 
 #siteIcon {
     width: 40px;
 }
 
-.title {
-    margin: 50px auto;
-    text-align: center;
-}
-
-.title .img-wrapper {
+#game_info_container {
     margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
-}
-
-#siteLogo {
-    width: 100%;
-}
-
-.title h1 {
-    font-size: 100px;
-}
-
-#game_info_container_top {
-    margin: 0 auto;
     padding: 0 auto;
     max-width: 1000px;
     width: 90%;
     min-width: 300px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#game_info_container_top {
+    margin: auto;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
 }
 
 #game_image_wrapper {
     margin: 0 auto;
+    max-height: 600px;
 }
 
 #game_image {
-    width: 100%;
+    margin: 0 auto;
     border-radius: 10px;
-    padding: 10px;
-
+    padding: 5px;
+    max-height: 400px;
+    max-width: 300px;
 }
 
 #game_main_info {
-    margin: 0 10px;
+    margin: 10px auto;
+    padding-left: 5px;
 }
 
 #game_main_info * {
-    padding: 5px;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 #game_info_container_bottom {
-    margin: 0 auto;
-    padding: 0 auto;
-    max-width: 1000px;
-    width: 90%;
-    min-width: 300px;
+    margin: auto;
+    margin-top: 40px;
+    width: 100% !important;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
 }
 
-#game_info_container_top * {
-    padding: 10px;
+#game_long_description {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+}
+
+figure {
+    max-width: 100% !important;
+}
+
+figure * {
+    max-width: 100% !important;
+}
+
+figure * * {
+    max-width: 100% !important;
 }

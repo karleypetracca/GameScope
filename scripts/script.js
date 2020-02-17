@@ -163,8 +163,8 @@ async function buildCards() {
         cardImg.addEventListener("click", async function(event) {
             event.preventDefault();
             localStorage.setItem("gameSelectId", task.guid);
-            localStorage.setItem("Platform", cardText3.innerText);
-            localStorage.setItem("release date", cardText2.innerText);
+            localStorage.setItem("platform", cardText3.innerText);
+            localStorage.setItem("release_date", cardText2.innerText);
             window.location.href="link.html";
         });
 
@@ -179,8 +179,8 @@ async function buildCards() {
         title.addEventListener("click", async function(event) {
             event.preventDefault();
             localStorage.setItem("gameSelectId", task.guid);
-            localStorage.setItem("Platform", cardText3.innerText);
-            localStorage.setItem("release date", cardText2.innerText);
+            localStorage.setItem("platform", cardText3.innerText);
+            localStorage.setItem("release_date", cardText2.innerText);
             window.location.href="link.html";
         });
 
