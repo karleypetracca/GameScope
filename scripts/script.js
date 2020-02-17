@@ -245,6 +245,7 @@ $("#filterYear").children().each(function() {
         console.log("Year button clicked " + $(this).text());
         inputYear.value = $(this).text();
         $("#mainYear").html("Year - " + $(this).text());
+        $(this).addClass("active");
         await buildCards();
     })
 });
@@ -273,6 +274,7 @@ $("#filterPlatform").children().each(function() {
         console.log("Platform button clicked " + $(this).text());
         inputPlatform.value = $(this).attr("value");
         $("#mainPlatform").html("Platform - " + $(this).text());
+        $(this).addClass("active");
         await buildCards();
     })
 });

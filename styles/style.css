@@ -64,69 +64,38 @@ body {
     margin-top: 0;
 }
 
-<<<<<<< HEAD
-.btn-group-vertical{
-    display: inline-flex;
-    border-radius: 8px;
-    color: rgb(255, 255, 255)
-=======
-div.btn-group{
+.btn-group {
     display: inline-flex;
     width: 100%;
     height:auto;
     justify-content: center;
     flex-wrap: wrap;
->>>>>>> c19880b75803a1d46809a8880123df92a0fa7b1e
-}
-
-<<<<<<< HEAD
-.card-columns{
-    overflow: hidden;
 }
 
 .button_group{
-    margin-left: 30px;
-    display: inline-flex;
-    align-items: flex-start;
+    display:flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
 }
 
 .button_group .btn {
-    width: 215px;
-    background-color: rgb(95, 101, 114);
-    color: rgb(255, 255, 255);
-    border-style: none;
-    border-radius: 8px
+    width: 220px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
-
-.content { 
-    margin-top: 100px;
-    display:flex;
-}
-=======
- div.button_group{
-     display:flex;
-     align-items: center;
-     width: 100%;
-     height: auto;
-     flex-wrap: wrap;
- }
-
- .button_group .btn {
-     width: 220px;
-     margin-left: 5px;
-     margin-right: 5px;
- }
 
 .dropdown-item {
     width: 220px;
 }
 
- .content { 
-     margin-top: 20px;
-     display: block;
-     align-items: center;
-     text-align: center;
- }
+.content { 
+    margin-top: 20px;
+    display: block;
+    align-items: center;
+    text-align: center;
+}
 
 
 @media only screen and (max-width: 1000px) {
@@ -152,5 +121,3 @@ div.btn-group{
         margin-top: 5px;
     }
 }
-
->>>>>>> c19880b75803a1d46809a8880123df92a0fa7b1e
