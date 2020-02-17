@@ -7,6 +7,7 @@ const apiKey = "6b4ac05b6e77823f1510fcb200250f6e07e11241";
 
 // FUNCTIONS //
 
+
 async function queryGameSelect(gameSelectId) {
     let gameObject = [];
     let gameSelectQuery = `https://www.giantbomb.com/api/game/${gameSelectId}/?api_key=${apiKey}&format=json`;
@@ -232,7 +233,6 @@ async function buildCards() {
     }
 }
 
-console.log()
 
 
 // EVENT LISTENERS //
@@ -276,4 +276,41 @@ $("#filterPlatform").children().each(function() {
         await buildCards();
     })
 });
+
+const searchingArray = []
+
+async function searchArray (){
+    let searchUrl = await `https://www.giantbomb.com/api/games/?api_key=0db701c3bf4b84594cb0b2282c255345428c9a87&format=json&filter=expected_release_year:2017,2018,2019,2020,2021,2022,2023&field_list=name`;
+    const response = await get(searchUrl);
+    response.results.map(element => {
+        searchingArray.push(element.name);
+    })
+    console.log(searchingArray)
+};
+
+const searchThroughArray = searchArray()
+
+
+$("#search_input").autocomplete({
+    source: searchingArray
+});
+
+
+
+
+// ["game","1","fsfd","qwe","vcx","rty","rtyr","rty","bcv","sfs"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

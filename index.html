@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>GameScope</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <!-- Non Bootstrap items for testing - NEED TO INTEGRATE AND HIDE -->
@@ -47,7 +48,7 @@
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" id="search_input" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -60,33 +61,31 @@
         <h4><em>Keep the release date in your crosshairs</em></h4>
       </div>
 
-      <div class="content" id="content">
-      
+      <div class ="content">
       <div class="button_group">
-      <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
-        <!-- <button type="button" class="btn btn-secondary">Filter</button> -->
-
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainYear">
-            Year - 2020
+      <div class="btn-group">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainYear">
+            Year
           </button>
-          <div class="dropdown-menu" id="filterYear">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterYear" data-toggle="dropdown">
             <button class="dropdown-item" type="button">2017</button>
-            <button class="dropdown-item" type="button">2018</button>
+            <button class="dropdown-item" type="button">2018 </button>
             <button class="dropdown-item" type="button">2019</button>
-            <button class="dropdown-item active" type="button">2020</button>
+            <button class="dropdown-item" type="button">2019</button>
+            <button class="dropdown-item" type="button">2020</button>
             <button class="dropdown-item" type="button">2021</button>
             <button class="dropdown-item" type="button">2022</button>
             <button class="dropdown-item" type="button">2023</button>
           </div>
         </div>
-        
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainMonth">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainMonth">
             Month
           </button>
-          <div class="dropdown-menu" id="filterMonth">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterMonth">
             <button class="dropdown-item" type="button" value="all">All Months</button>
+            <div class="dropdown-divider"></div>
             <button class="dropdown-item" type="button" value="1">January</button>
             <button class="dropdown-item" type="button" value="2">February</button>
             <button class="dropdown-item" type="button" value="3">March</button>
@@ -101,32 +100,50 @@
             <button class="dropdown-item" type="button" value="12">December</button>
           </div>
         </div>
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-secondary dropdown-toggle"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainPlatform">
-            Platform 
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainPlatform">
+            Platform
           </button>
-          <div class="dropdown-menu" id="filterPlatform">
-            <button class="dropdown-item" type="button" value="all">All Platforms</button>
-            <button class="dropdown-item" type="button" value="Xbox One">Xbox One</button>
-            <button class="dropdown-item" type="button" value="PlayStation 4">PlayStation 4</button>
-            <button class="dropdown-item" type="button" value="Nintendo Switch">Nintendo Switch</button>
-            <button class="dropdown-item" type="button" value="PC">PC</button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterPlatform">
+            <button class="dropdown-item" type="button" value="all">All Platforms </button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" type="button" value="Xbox One">Xbox One </button>
+            <button class="dropdown-item" type="button" value="PlayStation 4">Playstation 4 </button>
+            <button class="dropdown-item" type="button" value="Nintendo Switch">Nintendo Switch </button>
+            <button class="dropdown-item" type="button" value="PC">PC </button>
+
           </div>
         </div>
       </div>
       </div>
-
   <div class="card_wrapper">
     <div class="card-columns" id="card-container">  
 
-      
+
     </div>
   </div>  
 </body>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+<script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+  integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+  crossorigin="anonymous"></script>
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
 <script src="scripts/get.js"></script>
 <script src="scripts/script.js"></script>
 </html>
