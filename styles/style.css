@@ -10,6 +10,11 @@ html {
     margin: 0;
 }
 
+body {
+    height: 100%;
+    background: linear-gradient(rgb(145, 151, 170), rgb(110, 114, 124)) no-repeat center center fixed;
+}
+
 #siteIcon {
     width: 40px;
 }
@@ -22,6 +27,7 @@ html {
 .title .img-wrapper {
     margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 500px;
@@ -35,7 +41,7 @@ html {
     font-size: 100px;
 }
 
-div.card_wrapper {
+.card_wrapper {
     width:65%;
     display:inline-flex;
     height:auto;
@@ -43,7 +49,7 @@ div.card_wrapper {
     margin-top: 0;
 }
 
-div.individual_content {
+.individual_content {
     width:100%;
     height:300px;
     display:inline-flex;
@@ -52,24 +58,31 @@ div.individual_content {
     margin-top: 0;
 }
 
-div.btn-group-vertical{
+.btn-group-vertical{
     display: inline-flex;
+    border-radius: 8px;
+    color: rgb(255, 255, 255)
 }
- div.card-columns{
-     overflow: hidden;
- }
 
- div.button_group{
-     margin-left: 30px;
-     display: inline-flex;
-     align-items: flex-start;
- }
+.card-columns{
+    overflow: hidden;
+}
 
- .button_group .btn {
-     width: 215px;
- }
+.button_group{
+    margin-left: 30px;
+    display: inline-flex;
+    align-items: flex-start;
+}
 
- .content { 
-     margin-top: 100px;
-     display:flex;
- }
+.button_group .btn {
+    width: 215px;
+    background-color: rgb(95, 101, 114);
+    color: rgb(255, 255, 255);
+    border-style: none;
+    border-radius: 8px
+}
+
+.content { 
+    margin-top: 100px;
+    display:flex;
+}

@@ -10,6 +10,11 @@ html {
     margin: 0;
 }
 
+body {
+    height: 100%;
+    background: linear-gradient(rgb(145, 151, 170), rgb(69, 73, 83)) no-repeat center center fixed;
+}
+
 #siteIcon {
     width: 40px;
 }
@@ -22,6 +27,7 @@ html {
 .title .img-wrapper {
     margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 500px;
@@ -35,32 +41,50 @@ html {
     font-size: 100px;
 }
 
-div.card_wrapper {
-    width:65%;
-    display:inline-flex;
-    height:auto;
-    margin-left:100px;
-    margin-top: 0;
+#game_info_container_top {
+    margin: 0 auto;
+    padding: 0 auto;
+    max-width: 1000px;
+    width: 90%;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
 }
 
-div.btn-group-vertical{
-    display: inline-flex;
+#game_image_wrapper {
+    margin: 0 auto;
 }
- div.card-columns{
-     overflow: hidden;
- }
 
- div.button_group{
-     margin-left: 30px;
-     display: inline-flex;
-     align-items: flex-start;
- }
+#game_image {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
 
- .button_group .btn {
-     width: 175px;
- }
+}
 
- .content { 
-     margin-top: 100px;
-     display:flex;
- }
+#game_main_info {
+    margin: 0 10px;
+}
+
+#game_main_info * {
+    padding: 5px;
+    margin: 0 auto;
+}
+
+#game_info_container_bottom {
+    margin: 0 auto;
+    padding: 0 auto;
+    max-width: 1000px;
+    width: 90%;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+#game_info_container_top * {
+    padding: 10px;
+}
