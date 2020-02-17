@@ -37,10 +37,12 @@ html {
 
 div.card_wrapper {
     width:65%;
+    min-width: 300px;
     display:inline-flex;
     height:auto;
-    margin-left:100px;
-    margin-top: 0;
+    /* margin-left:300px; */
+    justify-content: center;
+    margin-top: 50px;
 }
 
 div.individual_content {
@@ -52,24 +54,64 @@ div.individual_content {
     margin-top: 0;
 }
 
-div.btn-group-vertical{
+div.btn-group{
     display: inline-flex;
+    width: 100%;
+    height:auto;
+    justify-content: center;
+    flex-wrap: wrap;
 }
  div.card-columns{
      overflow: hidden;
  }
 
  div.button_group{
-     margin-left: 30px;
-     display: inline-flex;
-     align-items: flex-start;
+     display:flex;
+     align-items: center;
+     width: 100%;
+     height: auto;
+     flex-wrap: wrap;
  }
 
  .button_group .btn {
-     width: 215px;
+     width: 220px;
+     margin-left: 5px;
+     margin-right: 5px;
  }
 
+.dropdown-item {
+    width: 220px;
+}
+
  .content { 
-     margin-top: 100px;
-     display:flex;
+     margin-top: 20px;
+     display: block;
+     align-items: center;
+     text-align: center;
  }
+
+
+@media only screen and (max-width: 1000px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card-columns {
+        column-count: 1;
+        }
+}
+
+@media only screen and (max-width: 690px) {
+    .button_group .btn {
+        margin-top: 5px;
+    }
+}
+

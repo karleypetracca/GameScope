@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-console.log(a)
-=======
 
 window.onload = async function() {
     let gameSelectId = await localStorage.getItem("gameSelectId");
@@ -10,4 +7,3 @@ window.onload = async function() {
     console.log(gameObject);
     document.getElementsByTagName("html")[0].style.visibility = "visible";
 }
->>>>>>> 79fe6b48efa366f5b64e74225c872927198caec0
