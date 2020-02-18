@@ -7,6 +7,7 @@ const apiKey = "6b4ac05b6e77823f1510fcb200250f6e07e11241";
 
 // FUNCTIONS //
 
+
 async function queryGameSelect(gameSelectId) {
     let gameObject = [];
     let gameSelectQuery = `https://www.giantbomb.com/api/game/${gameSelectId}/?api_key=${apiKey}&format=json`;
@@ -157,14 +158,14 @@ async function buildCards() {
         card.className = 'card';
 
         let cardImg = document.createElement('div');
-        cardImg.innerHTML = `<img src="${task.image.small_url}" title="${task.guid}" class="card-img-top">`;
+        cardImg.innerHTML = `<img src="${task.image.small_url}" title="${task.guid}" class="card-img-top" id="card_img">`;
         
         // create event listener for image
         cardImg.addEventListener("click", async function(event) {
             event.preventDefault();
             localStorage.setItem("gameSelectId", task.guid);
-            localStorage.setItem("Platform", cardText3.innerText);
-            localStorage.setItem("release date", cardText2.innerText);
+            localStorage.setItem("platform", cardText3.innerText);
+            localStorage.setItem("release_date", cardText2.innerText);
             window.location.href="link.html";
         });
 
@@ -172,6 +173,7 @@ async function buildCards() {
         cardBody.className = 'card-body';
 
         let title = document.createElement('h5');
+        title.id = "card_title"
         title.innerText = task.name;
         title.className = 'card-title';
 
@@ -179,8 +181,8 @@ async function buildCards() {
         title.addEventListener("click", async function(event) {
             event.preventDefault();
             localStorage.setItem("gameSelectId", task.guid);
-            localStorage.setItem("Platform", cardText3.innerText);
-            localStorage.setItem("release date", cardText2.innerText);
+            localStorage.setItem("platform", cardText3.innerText);
+            localStorage.setItem("release_date", cardText2.innerText);
             window.location.href="link.html";
         });
 
@@ -213,7 +215,7 @@ async function buildCards() {
 
         if (task.platforms) {
             task.platforms.map(platform => {
-                cardText3.innerText += ` ${platform.name},`
+                cardText3.innerText += ` ${platform.name},`;
             })
             cardText3.innerText = cardText3.innerText.substring(0,(cardText3.innerText.length-1))
         } else {
@@ -232,7 +234,6 @@ async function buildCards() {
     }
 }
 
-console.log()
 
 
 // EVENT LISTENERS //
@@ -242,9 +243,13 @@ $("#filterYear").children().each(function() {
     let inputYear = document.querySelector("#inputYear");
     $(this).click(async function() {
         event.preventDefault();
+        $("#filterYear").children().each(function() {
+            $(this).attr("class", "dropdown-item");
+        });
         console.log("Year button clicked " + $(this).text());
         inputYear.value = $(this).text();
         $("#mainYear").html("Year - " + $(this).text());
+        $(this).addClass("active");
         await buildCards();
     })
 });
@@ -270,10 +275,63 @@ $("#filterPlatform").children().each(function() {
     let inputPlatform = document.querySelector("#inputPlatform");
     $(this).click(async function() {
         event.preventDefault();
+        $("#filterPlatform").children().each(function() {
+            $(this).attr("class", "dropdown-item");
+        });
         console.log("Platform button clicked " + $(this).text());
         inputPlatform.value = $(this).attr("value");
         $("#mainPlatform").html("Platform - " + $(this).text());
+        $(this).addClass("active");
         await buildCards();
     })
 });
+
+const searchingArray = []
+const guidArray = []
+
+async function searchArray (){
+    let searchUrl = await `https://www.giantbomb.com/api/games/?api_key=0db701c3bf4b84594cb0b2282c255345428c9a87&format=json&filter=expected_release_year:2017,2018,2019,2020,2021,2022,2023`;
+    const response = await get(searchUrl);
+    response.results.map(element => {
+        searchingArray.push(element.name);
+        guidArray.push(element.guid);
+    })
+};
+
+searchArray()
+console.log(searchingArray, guidArray)
+
+
+$("#search_input").autocomplete({
+    source: searchingArray
+});
+
+
+
+search_btn.addEventListener("click", async function(event) {
+    event.preventDefault();
+    let search_input = document.querySelector('#search_input')
+    let search_btn = document.querySelector("#search_btn")
+    localStorage.setItem("gameSelectSearchId", search_input.value);
+    console.log(localStorage.getItem("gameSelectSearchId"))
+    console.log(search_input.value)
+    let selectSearchGuid = guidArray[(searchingArray.indexOf(localStorage.getItem("gameSelectSearchId")))]
+    console.log(selectSearchGuid)
+    localStorage.setItem("gameSelectId", selectSearchGuid)
+    window.location.href="link.html"
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

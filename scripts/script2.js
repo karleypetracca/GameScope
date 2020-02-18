@@ -1,23 +1,28 @@
 
-window.onload = async function () {
-    let gameSelectId = await localStorage.getItem("gameSelectId");
+window.onload = async function() {
+    let gameSelectId = await localStorage.getItem("gameSelectId") || "3030-57912";
     let gameObject = await queryGameSelect(gameSelectId);
-    $("#game_title").html(gameObject.name);
-    $("#game_image").attr("src", gameObject.image.medium_url);
-    console.log(gameObject.name);
-    let releaseDate = await this.localStorage.getItem("release date");
-    let Platform = await this.localStorage.getItem("Platform");
-    await buildCards(gameObject);
-    
-    document.getElementsByTagName("html")[0].style.visibility = "visible";
-    console.log(releaseDate);
-    $("#game_release_date").html(releaseDate);
-    $("#platform").html(Platform);
-    
-    
-    
+    console.log(gameObject);
 
+    $("body").css("background", `url("${gameObject.image.original_url}") no-repeat center center fixed`);
+    $("#game_image").attr("src", gameObject.image.medium_url);
+    $("#game_title").html(gameObject.name);
+    $("#game_description").html(gameObject.deck);
+
+    let releaseDate = await localStorage.getItem("release_date");
+    let Platform = await localStorage.getItem("platform");
+    await buildCards(gameObject);
+   
+    document.getElementsByTagName("html")[0].style.visibility = "visible";
+    $("#game_release_date").html(releaseDate);
+    $("#game_platform").html(Platform);
+    $("#game_long_description").html(gameObject.description);    
+
+    
+    
 }
+
+
 
 async function buildCards(gameObject) {
     let cardContainer = document.getElementById('card-container');
@@ -106,7 +111,3 @@ async function newsLookup(gameName) {
     }
 
 }
-
-
-
-

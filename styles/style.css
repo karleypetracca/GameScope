@@ -10,8 +10,26 @@ html {
     margin: 0;
 }
 
+body {
+    height: 100%;
+}
+
+#navbar {
+    background-color: rgb(49, 75, 122);
+
+}
+
 #siteIcon {
     width: 40px;
+}
+
+#homeLink {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#lastGameLink {
+    font-size: 1.2rem;
 }
 
 .title {
@@ -22,6 +40,7 @@ html {
 .title .img-wrapper {
     margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 500px;
@@ -35,15 +54,17 @@ html {
     font-size: 100px;
 }
 
-div.card_wrapper {
+.card_wrapper {
     width:65%;
+    min-width: 300px;
     display:inline-flex;
     height:auto;
-    margin-left:100px;
-    margin-top: 0;
+    /* margin-left:300px; */
+    justify-content: center;
+    margin-top: 50px;
 }
 
-div.individual_content {
+.individual_content {
     width:100%;
     height:300px;
     display:inline-flex;
@@ -52,24 +73,64 @@ div.individual_content {
     margin-top: 0;
 }
 
-div.btn-group-vertical{
+.btn-group {
     display: inline-flex;
+    width: 100%;
+    height:auto;
+    justify-content: center;
+    flex-wrap: wrap;
 }
- div.card-columns{
-     overflow: hidden;
- }
 
- div.button_group{
-     margin-left: 30px;
-     display: inline-flex;
-     align-items: flex-start;
- }
+.button_group{
+    display:flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+}
 
- .button_group .btn {
-     width: 215px;
- }
+.button_group .btn {
+    width: 220px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
 
- .content { 
-     margin-top: 100px;
-     display:flex;
- }
+.dropdown-item {
+    width: 220px;
+}
+
+.content { 
+    margin-top: 20px;
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+#card_img:hover, #card_title:hover {
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card-columns {
+        column-count: 1;
+        }
+}
+
+@media only screen and (max-width: 690px) {
+    .button_group .btn {
+        margin-top: 5px;
+    }
+}
