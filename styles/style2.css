@@ -124,3 +124,37 @@ figure * {
 figure * * {
     max-width: 100% !important;
 }
+
+#card-container {
+    border-radius: 8px;
+    width: 100%;
+}
+
+#news_title {
+    margin: 30px auto;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .9); 
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#card {
+    background-color: rgba(255, 255, 255, .9); 
+    border-style: none;
+    margin: 10px auto;
+}
+
+#card * {
+    margin-left: 5px;
+}
+
+.card-text2 {
+    font-style: italic;
+}
+
+.card-text2:hover {
+    cursor: pointer;
+}
