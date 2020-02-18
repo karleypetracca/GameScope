@@ -245,6 +245,7 @@ $("#filterYear").children().each(function() {
         console.log("Year button clicked " + $(this).text());
         inputYear.value = $(this).text();
         $("#mainYear").html("Year - " + $(this).text());
+        $(this).addClass("active");
         await buildCards();
     })
 });
@@ -273,6 +274,7 @@ $("#filterPlatform").children().each(function() {
         console.log("Platform button clicked " + $(this).text());
         inputPlatform.value = $(this).attr("value");
         $("#mainPlatform").html("Platform - " + $(this).text());
+        $(this).addClass("active");
         await buildCards();
     })
 });
@@ -299,7 +301,18 @@ $("#search_input").autocomplete({
 
 
 
-
+search_btn.addEventListener("click", async function(event) {
+    event.preventDefault();
+    let search_input = document.querySelector('#search_input')
+    let search_btn = document.querySelector("#search_btn")
+    localStorage.setItem("gameSelectSearchId", search_input.value);
+    console.log(localStorage.getItem("gameSelectSearchId"))
+    console.log(search_input.value)
+    let selectSearchGuid = guidArray[(searchingArray.indexOf(localStorage.getItem("gameSelectSearchId")))]
+    console.log(selectSearchGuid)
+    localStorage.setItem("gameSelectId", selectSearchGuid)
+    window.location.href="link.html"
+})
 
 
 

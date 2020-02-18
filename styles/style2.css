@@ -10,57 +10,91 @@ html {
     margin: 0;
 }
 
+body {
+    height: 100%;
+    background-color: linear-gradient(rgb(145, 151, 170), rgb(69, 73, 83));
+}
+
+#navbar {
+    background-color: rgb(49, 75, 122);
+}
+
 #siteIcon {
     width: 40px;
 }
 
-.title {
-    margin: 50px auto;
-    text-align: center;
-}
-
-.title .img-wrapper {
+#game_info_container {
     margin: auto;
+    padding: 0 auto;
+    max-width: 1000px;
+    width: 90%;
+    min-width: 300px;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    max-width: 500px;
 }
 
-#siteLogo {
+#game_info_container_top {
+    margin: auto;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
 }
 
-.title h1 {
-    font-size: 100px;
+#game_image_wrapper {
+    margin: 0 auto;
+    max-height: 600px;
 }
 
-div.card_wrapper {
-    width:65%;
-    display:inline-flex;
-    height:auto;
-    margin-left:100px;
-    margin-top: 0;
+#game_image {
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 5px;
+    max-height: 400px;
+    max-width: 300px;
 }
 
-div.btn-group-vertical{
-    display: inline-flex;
+#game_main_info {
+    margin: 10px auto;
+    padding-left: 5px;
 }
- div.card-columns{
-     overflow: hidden;
- }
 
- div.button_group{
-     margin-left: 30px;
-     display: inline-flex;
-     align-items: flex-start;
- }
+#game_main_info * {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
 
- .button_group .btn {
-     width: 175px;
- }
+#game_info_container_bottom {
+    margin: auto;
+    margin-top: 40px;
+    width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
 
- .content { 
-     margin-top: 100px;
-     display:flex;
- }
+#game_long_description {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+}
+
+figure {
+    max-width: 100% !important;
+}
+
+figure * {
+    max-width: 100% !important;
+}
+
+figure * * {
+    max-width: 100% !important;
+}

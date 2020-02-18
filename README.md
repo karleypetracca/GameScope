@@ -8,4 +8,8 @@ Dustin Myers, Geordy Bird and Karley Petracca
 
 
 ## API Reference
-* **GiantBomb**: https://www.giantbomb.com/api/documentation/
+* **GiantBomb:** https://www.giantbomb.com/api/documentation/
+
+
+## Image reference
+* **Background image for Home:** https://unsplash.com/photos/LzgK6IMoSZM
