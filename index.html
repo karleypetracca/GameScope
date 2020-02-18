@@ -22,89 +22,88 @@
     <!-- Bootstrap elements below -->
 
     <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
-        <a class="navbar-brand" href="index.html"><img
-        src="images/GameScope-logo-icon.png" id="siteIcon"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="link.html">Last game visited</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" id="search_input" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+      <a class="navbar-brand" href="index.html"><img
+      src="images/GameScope-logo-icon.png" id="siteIcon"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html" id="homeLink">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="link.html" id="lastGameLink">Last game visited</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" id="search_input" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
       
-      <div class="title">
-        <div class="title img-wrapper">
-          <img id="siteLogo" src="images/GameScope-logo.png">
-        </div>
-        <h4><em>Keep the release date in your crosshairs</em></h4>
+    <div class="title">
+      <div class="title img-wrapper">
+        <img id="siteLogo" src="images/GameScope-logo.png">
       </div>
+      <h4><em>Keep the release date in your crosshairs</em></h4>
+    </div>
 
-      <div class ="content">
-      <div class="button_group">
-      <div class="btn-group">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainYear">
-            Year
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterYear" data-toggle="dropdown">
-            <button class="dropdown-item" type="button">2017</button>
-            <button class="dropdown-item" type="button">2018 </button>
-            <button class="dropdown-item" type="button">2019</button>
-            <button class="dropdown-item" type="button">2019</button>
-            <button class="dropdown-item" type="button">2020</button>
-            <button class="dropdown-item" type="button">2021</button>
-            <button class="dropdown-item" type="button">2022</button>
-            <button class="dropdown-item" type="button">2023</button>
-          </div>
+    <div class ="content">
+    <div class="button_group">
+    <div class="btn-group">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainYear">
+          Year
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterYear" data-toggle="dropdown">
+          <button class="dropdown-item" type="button">2017</button>
+          <button class="dropdown-item" type="button">2018 </button>
+          <button class="dropdown-item" type="button">2019</button>
+          <button class="dropdown-item" type="button">2020</button>
+          <button class="dropdown-item" type="button">2021</button>
+          <button class="dropdown-item" type="button">2022</button>
+          <button class="dropdown-item" type="button">2023</button>
         </div>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainMonth">
-            Month
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterMonth">
-            <button class="dropdown-item" type="button" value="all">All Months</button>
-            <div class="dropdown-divider"></div>
-            <button class="dropdown-item" type="button" value="1">January</button>
-            <button class="dropdown-item" type="button" value="2">February</button>
-            <button class="dropdown-item" type="button" value="3">March</button>
-            <button class="dropdown-item" type="button" value="4">April</button>
-            <button class="dropdown-item" type="button" value="5">May</button>
-            <button class="dropdown-item" type="button" value="6">June</button>
-            <button class="dropdown-item" type="button" value="7">July</button>
-            <button class="dropdown-item" type="button" value="8">August</button>
-            <button class="dropdown-item" type="button" value="9">September</button>
-            <button class="dropdown-item" type="button" value="10">October</button>
-            <button class="dropdown-item" type="button" value="11">November</button>
-            <button class="dropdown-item" type="button" value="12">December</button>
-          </div>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainMonth">
+          Month
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterMonth">
+          <button class="dropdown-item" type="button" value="all">All Months</button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button" value="1">January</button>
+          <button class="dropdown-item" type="button" value="2">February</button>
+          <button class="dropdown-item" type="button" value="3">March</button>
+          <button class="dropdown-item" type="button" value="4">April</button>
+          <button class="dropdown-item" type="button" value="5">May</button>
+          <button class="dropdown-item" type="button" value="6">June</button>
+          <button class="dropdown-item" type="button" value="7">July</button>
+          <button class="dropdown-item" type="button" value="8">August</button>
+          <button class="dropdown-item" type="button" value="9">September</button>
+          <button class="dropdown-item" type="button" value="10">October</button>
+          <button class="dropdown-item" type="button" value="11">November</button>
+          <button class="dropdown-item" type="button" value="12">December</button>
         </div>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainPlatform">
-            Platform
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterPlatform">
-            <button class="dropdown-item" type="button" value="all">All Platforms </button>
-            <div class="dropdown-divider"></div>
-            <button class="dropdown-item" type="button" value="Xbox One">Xbox One </button>
-            <button class="dropdown-item" type="button" value="PlayStation 4">Playstation 4 </button>
-            <button class="dropdown-item" type="button" value="Nintendo Switch">Nintendo Switch </button>
-            <button class="dropdown-item" type="button" value="PC">PC </button>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mainPlatform">
+          Platform
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="filterPlatform">
+          <button class="dropdown-item" type="button" value="all">All Platforms </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button" value="Xbox One">Xbox One </button>
+          <button class="dropdown-item" type="button" value="PlayStation 4">Playstation 4 </button>
+          <button class="dropdown-item" type="button" value="Nintendo Switch">Nintendo Switch </button>
+          <button class="dropdown-item" type="button" value="PC">PC </button>
 
-          </div>
         </div>
       </div>
-      </div>
+    </div>
+    </div>
   <div class="card_wrapper">
     <div class="card-columns" id="card-container">  
 

@@ -12,15 +12,24 @@ html {
 
 body {
     height: 100%;
-    background: radial-gradient(transparent, white), url("../images/kupono-kuwamura-LzgK6IMoSZM-unsplash.png") no-repeat center center fixed;
 }
 
 #navbar {
     background-color: rgb(49, 75, 122);
+
 }
 
 #siteIcon {
     width: 40px;
+}
+
+#homeLink {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#lastGameLink {
+    font-size: 1.2rem;
 }
 
 .title {
@@ -95,6 +104,10 @@ body {
     display: block;
     align-items: center;
     text-align: center;
+}
+
+#card_img:hover, #card_title:hover {
+    cursor: pointer;
 }
 
 
