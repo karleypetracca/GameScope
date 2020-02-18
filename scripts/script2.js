@@ -29,14 +29,21 @@ window.onload = async function() {
     let month = [ "none", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let releaseDate = "";
 
-    if (gameObject.expected_release_month && gameObject.expected_release_day){
-        releaseDate = "Expected Release: " + month[gameObject.expected_release_month] + " " + gameObject.expected_release_day + ", " + gameObject.expected_release_year;
-    } else if(gameObject.expected_release_month){
-        releaseDate = "Expected Release: " + month[gameObject.expected_release_month] + " " + gameObject.expected_release_year;
-    } else if (gameObject.expected_release_year){
-        releaseDate = "Expected Release: " + gameObject.expected_release_year;
+    let dateString = "";
+    if (gameObject.expected_release_year < 2020) {
+        dateString = "Released: "
     } else {
-        releaseDate = "Expected Release: " + (gameObject.expected_release_year);
+        dateString = "Expected Release: "
+    }
+
+    if (gameObject.expected_release_month && gameObject.expected_release_day){
+        releaseDate = dateString + month[gameObject.expected_release_month] + " " + gameObject.expected_release_day + ", " + gameObject.expected_release_year;
+    } else if(gameObject.expected_release_month){
+        releaseDate = dateString + month[gameObject.expected_release_month] + " " + gameObject.expected_release_year;
+    } else if (gameObject.expected_release_year){
+        releaseDate = dateString + gameObject.expected_release_year;
+    } else {
+        releaseDate = dateString + (gameObject.expected_release_year);
     }
 
     // build platforms field

@@ -20,8 +20,7 @@ async function queryGameSelect(gameSelectId) {
 async function queryUrl() {
     let newObject = [];
     let inputYear = document.querySelector("#inputYear");
-  
-    
+
     let apiUrl = await `https://www.giantbomb.com/api/games/?api_key=${apiKey}&format=json&filter=expected_release_year:${inputYear.value}`;
 
     const response = await get(apiUrl);
@@ -63,7 +62,6 @@ async function filterQuery(gameQuery) {
 
     // callback function for filtering month
     function filterByMonth(gameQuery) {
-        
 
         let monthsFiltered = [],
             monthHasReleases = false;
@@ -197,15 +195,22 @@ async function buildCards() {
         let cardText2 = document.createElement('p');
         let month = [ "none", "January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December"];
+        
+        let dateString = "";
+        if (task.expected_release_year < 2020) {
+            dateString = "Released: "
+        } else {
+            dateString = "Expected Release: "
+        }
 
         if(task.expected_release_month && task.expected_release_day){
-            cardText2.innerText = "Expected Release: " + month[task.expected_release_month] + " " + task.expected_release_day + ", " + task.expected_release_year;
+            cardText2.innerText = dateString + month[task.expected_release_month] + " " + task.expected_release_day + ", " + task.expected_release_year;
         } else if(task.expected_release_month){
-            cardText2.innerText = "Expected Release: " + month[task.expected_release_month] + " " + task.expected_release_year;
+            cardText2.innerText = dateString + month[task.expected_release_month] + " " + task.expected_release_year;
         } else if (task.expected_release_year){
-            cardText2.innerText = "Expected Release: " + task.expected_release_year;
+            cardText2.innerText = dateString + task.expected_release_year;
         } else {
-            cardText2.innerText = "Expected Release: " + (task.expected_release_year || inputYear.value);
+            cardText2.innerText = dateString + (task.expected_release_year || inputYear.value);
         }
         
         cardText2.className = 'card-text';
