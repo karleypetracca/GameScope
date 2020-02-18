@@ -18,6 +18,8 @@ window.onload = async function() {
     $("#game_long_description").html(gameObject.description);    
 }
 
+
+
 // release date  - will need a local storage 
 // platforms 
 
