@@ -1,4 +1,5 @@
 
+// runs once window is ready to load
 window.onload = async function() {
     let gameSelectId = await localStorage.getItem("gameSelectId") || "3030-57912";
     let gameObject = await queryGameSelect(gameSelectId);
@@ -10,7 +11,6 @@ window.onload = async function() {
     $("#game_description").html(gameObject.deck);
 
     // build expected release field
-    
     if (gameObject.original_release_date) {
         // check year
         if (gameObject.expected_release_year === null) {
@@ -50,8 +50,10 @@ window.onload = async function() {
         platformList += ' Unknown';
     }
 
+    // run news population function for game
     await buildCards(gameObject);
    
+    // populate game information
     document.getElementsByTagName("html")[0].style.visibility = "visible";
     $("#game_release_date").html(releaseDate);
     $("#game_platform").html(platformList);
@@ -59,8 +61,7 @@ window.onload = async function() {
     $("#game_long_description a").href("#");    
 }
 
-
-
+// populate news cards if news found
 async function buildCards(gameObject) {
     let cardContainer = document.getElementById('card-container');
     let news = await newsLookup(gameObject.name);
@@ -106,6 +107,7 @@ async function buildCards(gameObject) {
     }
 }
 
+// lookup into news API based on game name
 async function newsLookup(gameName) {
     let newObject = [];
     let apiUrl = await `http://newsapi.org/v2/everything?qInTitle=\"${gameName}\"&from=2020-01-30&sortBy=publishedAt&domains=gamespot.com,ign.com,androidcentral.com,comicbook.com,siliconera.com,playstationlifestyle.net,vgchartz.com,imore.com,windowscentral.com&apiKey=0ab09aaa807c43ef9016db62cfa6304d&language=en`;
@@ -113,16 +115,16 @@ async function newsLookup(gameName) {
 
     try {
         await response.articles.map(function(element, i) {
-        if (i < 5) {
-             newObject.push(element);
-        }
-            
-        })
+            if (i < 5) {
+                newObject.push(element);
+            } 
+        });
         console.log(newObject[0].description);
         console.log(newObject[0].url);
-        //article title = news[0].title
-        // article description = news[0].description
-        // newObject[0].url
+
+        document.querySelector("#news_title").style.visibility = "visible";
+        document.querySelector("#card-container").style.visibility = "visible";
+
         return await newObject;
     }
 
