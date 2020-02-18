@@ -9,17 +9,54 @@ window.onload = async function() {
     $("#game_title").html(gameObject.name);
     $("#game_description").html(gameObject.deck);
 
-    let releaseDate = await localStorage.getItem("release_date");
-    let Platform = await localStorage.getItem("platform");
+    // build expected release field
+    
+    if (gameObject.original_release_date) {
+        // check year
+        if (gameObject.expected_release_year === null) {
+            gameObject.expected_release_year = Number(gameObject.original_release_date.substring(0,4));
+        }
+        // check month
+        if (gameObject.expected_release_month === null) {
+            gameObject.expected_release_month = Number(gameObject.original_release_date.substring(5,7));
+        }
+        // check day
+        if (gameObject.expected_release_day === null) {
+            gameObject.expected_release_day = Number(gameObject.original_release_date.substring(8));
+        }
+    }
+
+    let month = [ "none", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let releaseDate = "";
+
+    if (gameObject.expected_release_month && gameObject.expected_release_day){
+        releaseDate = "Expected Release: " + month[gameObject.expected_release_month] + " " + gameObject.expected_release_day + ", " + gameObject.expected_release_year;
+    } else if(gameObject.expected_release_month){
+        releaseDate = "Expected Release: " + month[gameObject.expected_release_month] + " " + gameObject.expected_release_year;
+    } else if (gameObject.expected_release_year){
+        releaseDate = "Expected Release: " + gameObject.expected_release_year;
+    } else {
+        releaseDate = "Expected Release: " + (gameObject.expected_release_year);
+    }
+
+    // build platforms field
+    let platformList = 'Platforms:'
+    if (gameObject.platforms) {
+        gameObject.platforms.map(platform => {
+            platformList += ` ${platform.name},`;
+        })
+        platformList = platformList.substring(0,(platformList.length-1))
+    } else {
+        platformList += ' Unknown';
+    }
+
     await buildCards(gameObject);
    
     document.getElementsByTagName("html")[0].style.visibility = "visible";
     $("#game_release_date").html(releaseDate);
-    $("#game_platform").html(Platform);
-    $("#game_long_description").html(gameObject.description);    
-
-    
-    
+    $("#game_platform").html(platformList);
+    $("#game_long_description").html(gameObject.description);
+    $("#game_long_description a").href("#");    
 }
 
 
@@ -33,68 +70,52 @@ async function buildCards(gameObject) {
         cardContainer.innerHTML = "";
 
         await news.map((paper) => {
-
             createTaskCard(paper);
         })
-        function createTaskCard(paper) {
 
+        function createTaskCard(paper) {
             let card = document.createElement('div');
             card.className = 'card';
-        
+            card.id = "card";
            
             let cardBody = document.createElement('div');
             cardBody.className = 'card-body';
             let title = document.createElement('h5');
             title.innerText = paper.title;
-            title.className = 'card-title';
+            title.className = 'card-header';
 
             let cardText = document.createElement('p');
             cardText.innerText = paper.description;
             cardText.className = 'card-text';
             let cardText2 = document.createElement('p')
             cardText2.innerText = "View Article";
-            cardText2.className = 'card-text';
+            cardText2.className = 'card-text card-text2';
 
             cardText2.addEventListener("click", async function(event) {
                 event.preventDefault();
                 window.location.href=paper.url;
-                
             });
     
-            
-
             card.appendChild(title);
             cardBody.appendChild(cardText)
             cardBody.appendChild(cardText2)
             card.appendChild(cardBody);
             
-
-            
             cardContainer.appendChild(card);
-            
-            
         }
-        
-        
     }
 }
 
-
-
 async function newsLookup(gameName) {
-
-    
     let newObject = [];
     let apiUrl = await `http://newsapi.org/v2/everything?qInTitle=\"${gameName}\"&from=2020-01-30&sortBy=publishedAt&domains=gamespot.com,ign.com,androidcentral.com,comicbook.com,siliconera.com,playstationlifestyle.net,vgchartz.com,imore.com,windowscentral.com&apiKey=0ab09aaa807c43ef9016db62cfa6304d&language=en`;
     const response = await get(apiUrl);
 
     try {
-        
-
         await response.articles.map(function(element, i) {
-         if (i < 5) {
+        if (i < 5) {
              newObject.push(element);
-         }
+        }
             
         })
         console.log(newObject[0].description);
@@ -103,11 +124,9 @@ async function newsLookup(gameName) {
         // article description = news[0].description
         // newObject[0].url
         return await newObject;
-
     }
 
     catch (error) {
         return [];
     }
-
 }
