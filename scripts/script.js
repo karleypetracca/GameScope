@@ -158,7 +158,7 @@ async function buildCards() {
         card.className = 'card';
 
         let cardImg = document.createElement('div');
-        cardImg.innerHTML = `<img src="${task.image.small_url}" title="${task.guid}" class="card-img-top">`;
+        cardImg.innerHTML = `<img src="${task.image.small_url}" title="${task.guid}" class="card-img-top" id="card_img">`;
         
         // create event listener for image
         cardImg.addEventListener("click", async function(event) {
@@ -173,6 +173,7 @@ async function buildCards() {
         cardBody.className = 'card-body';
 
         let title = document.createElement('h5');
+        title.id = "card_title"
         title.innerText = task.name;
         title.className = 'card-title';
 
@@ -214,7 +215,7 @@ async function buildCards() {
 
         if (task.platforms) {
             task.platforms.map(platform => {
-                cardText3.innerText += ` ${platform.name},`
+                cardText3.innerText += ` ${platform.name},`;
             })
             cardText3.innerText = cardText3.innerText.substring(0,(cardText3.innerText.length-1))
         } else {
@@ -242,6 +243,9 @@ $("#filterYear").children().each(function() {
     let inputYear = document.querySelector("#inputYear");
     $(this).click(async function() {
         event.preventDefault();
+        $("#filterYear").children().each(function() {
+            $(this).attr("class", "dropdown-item");
+        });
         console.log("Year button clicked " + $(this).text());
         inputYear.value = $(this).text();
         $("#mainYear").html("Year - " + $(this).text());
@@ -271,6 +275,9 @@ $("#filterPlatform").children().each(function() {
     let inputPlatform = document.querySelector("#inputPlatform");
     $(this).click(async function() {
         event.preventDefault();
+        $("#filterPlatform").children().each(function() {
+            $(this).attr("class", "dropdown-item");
+        });
         console.log("Platform button clicked " + $(this).text());
         inputPlatform.value = $(this).attr("value");
         $("#mainPlatform").html("Platform - " + $(this).text());
