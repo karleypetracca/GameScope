@@ -15,7 +15,8 @@ window.onload = async function() {
     document.getElementsByTagName("html")[0].style.visibility = "visible";
     $("#game_release_date").html(releaseDate);
     $("#game_platform").html(Platform);
-    $("#game_long_description").html(gameObject.description);    
+    $("#game_long_description").html(gameObject.description);
+    $("#game_long_description a").href("#");    
 }
 
 

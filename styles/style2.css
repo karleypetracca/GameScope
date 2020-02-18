@@ -97,6 +97,12 @@ body {
     margin: 10px;
 }
 
+#game_long_description a {
+    margin: 0px;
+    text-decoration: none;
+    color: inherit;
+}
+
 #game_long_description img {
     margin-left: 0px;
 }
