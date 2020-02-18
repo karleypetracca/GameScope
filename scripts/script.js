@@ -164,8 +164,8 @@ async function buildCards() {
         cardImg.addEventListener("click", async function(event) {
             event.preventDefault();
             localStorage.setItem("gameSelectId", task.guid);
-            localStorage.setItem("Platform", cardText3.innerText);
-            localStorage.setItem("release date", cardText2.innerText);
+            localStorage.setItem("platform", cardText3.innerText);
+            localStorage.setItem("release_date", cardText2.innerText);
             window.location.href="link.html";
         });
 
@@ -180,8 +180,8 @@ async function buildCards() {
         title.addEventListener("click", async function(event) {
             event.preventDefault();
             localStorage.setItem("gameSelectId", task.guid);
-            localStorage.setItem("Platform", cardText3.innerText);
-            localStorage.setItem("release date", cardText2.innerText);
+            localStorage.setItem("platform", cardText3.innerText);
+            localStorage.setItem("release_date", cardText2.innerText);
             window.location.href="link.html";
         });
 
@@ -278,17 +278,19 @@ $("#filterPlatform").children().each(function() {
 });
 
 const searchingArray = []
+const guidArray = []
 
 async function searchArray (){
-    let searchUrl = await `https://www.giantbomb.com/api/games/?api_key=0db701c3bf4b84594cb0b2282c255345428c9a87&format=json&filter=expected_release_year:2017,2018,2019,2020,2021,2022,2023&field_list=name`;
+    let searchUrl = await `https://www.giantbomb.com/api/games/?api_key=0db701c3bf4b84594cb0b2282c255345428c9a87&format=json&filter=expected_release_year:2017,2018,2019,2020,2021,2022,2023`;
     const response = await get(searchUrl);
     response.results.map(element => {
         searchingArray.push(element.name);
+        guidArray.push(element.guid);
     })
-    console.log(searchingArray)
 };
 
-const searchThroughArray = searchArray()
+searchArray()
+console.log(searchingArray, guidArray)
 
 
 $("#search_input").autocomplete({
@@ -298,7 +300,6 @@ $("#search_input").autocomplete({
 
 
 
-// ["game","1","fsfd","qwe","vcx","rty","rtyr","rty","bcv","sfs"]
 
 
 

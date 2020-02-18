@@ -5,8 +5,8 @@ window.onload = async function() {
     $("#game_title").html(gameObject.name);
     $("#game_image").attr("src", gameObject.image.medium_url);
     console.log(gameObject);
-    let releaseDate = await this.localStorage.getItem("release date");
-    let Platform = await this.localStorage.getItem("Platform");
+    let releaseDate = await this.localStorage.getItem("release_date");
+    let Platform = await this.localStorage.getItem("platform");
    
     document.getElementsByTagName("html")[0].style.visibility = "visible";
     console.log(releaseDate);
