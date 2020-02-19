@@ -11,4 +11,4 @@ Dustin Myers, Geordy Bird and Karley Petracca
 
 ## API Reference
 * **GiantBomb:** https://www.giantbomb.com/api/documentation/
-
+* **News API:** https://newsapi.org/docs
