@@ -72,16 +72,16 @@ window.onload = async function() {
 async function buildCards(gameObject) {
     let cardContainer = document.getElementById('card-container');
     let news = await newsLookup(gameObject.name);
-    await initListOfTasks();
+    await startBuildingCards();
 
-    async function initListOfTasks() {
+    async function startBuildingCards() {
         cardContainer.innerHTML = "";
 
         await news.map((paper) => {
-            createTaskCard(paper);
+            createNewsCard(paper);
         })
 
-        function createTaskCard(paper) {
+        function createNewsCard(paper) {
             let card = document.createElement('div');
             card.className = 'card';
             card.id = "card";
@@ -116,23 +116,23 @@ async function buildCards(gameObject) {
 
 // lookup into news API based on game name
 async function newsLookup(gameName) {
-    let newObject = [];
+    let newsResponse = [];
     let apiUrl = await `http://newsapi.org/v2/everything?qInTitle=\"${gameName}\"&from=2020-01-30&sortBy=publishedAt&domains=gamespot.com,ign.com,androidcentral.com,comicbook.com,siliconera.com,playstationlifestyle.net,vgchartz.com,imore.com,windowscentral.com&apiKey=0ab09aaa807c43ef9016db62cfa6304d&language=en`;
     const response = await get(apiUrl);
 
     try {
         await response.articles.map(function(element, i) {
             if (i < 5) {
-                newObject.push(element);
+                newsResponse.push(element);
             } 
         });
-        console.log(newObject[0].description);
-        console.log(newObject[0].url);
+        console.log(newsResponse[0].description);
+        console.log(newsResponse[0].url);
 
         document.querySelector("#news_title").style.visibility = "visible";
         document.querySelector("#card-container").style.visibility = "visible";
 
-        return await newObject;
+        return await newsResponse;
     }
 
     catch (error) {
