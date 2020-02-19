@@ -10,7 +10,7 @@ const apiKey = "6b4ac05b6e77823f1510fcb200250f6e07e11241";
 
 async function queryGameSelect(gameSelectId) {
     let gameObject = [];
-    let gameSelectQuery = `https://www.giantbomb.com/api/game/${gameSelectId}/?api_key=${apiKey}&format=json`;
+    let gameSelectQuery = `https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/game/${gameSelectId}/?api_key=${apiKey}&format=json`;
     
     const response = await get(gameSelectQuery);
     gameObject = await response.results;
@@ -20,9 +20,8 @@ async function queryGameSelect(gameSelectId) {
 async function queryUrl() {
     let newObject = [];
     let inputYear = document.querySelector("#inputYear");
-  
-    
-    let apiUrl = await `https://www.giantbomb.com/api/games/?api_key=${apiKey}&format=json&filter=expected_release_year:${inputYear.value}`;
+
+    let apiUrl = await `https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/games/?api_key=${apiKey}&format=json&filter=expected_release_year:${inputYear.value}`;
 
     const response = await get(apiUrl);
     await response.results.map(element => {
@@ -63,7 +62,6 @@ async function filterQuery(gameQuery) {
 
     // callback function for filtering month
     function filterByMonth(gameQuery) {
-        
 
         let monthsFiltered = [],
             monthHasReleases = false;
@@ -72,7 +70,7 @@ async function filterQuery(gameQuery) {
         } else {
             gameQuery.forEach(element => {
                 if (element.expected_release_month == inputMonth.value) {
-                    monthHasReleases = true;
+                    // monthHasReleases = true;
                     monthsFiltered.push(element);
                 }
             })
@@ -197,15 +195,22 @@ async function buildCards() {
         let cardText2 = document.createElement('p');
         let month = [ "none", "January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December"];
+        
+        let dateString = "";
+        if (task.expected_release_year < 2020) {
+            dateString = "Released: "
+        } else {
+            dateString = "Expected Release: "
+        }
 
         if(task.expected_release_month && task.expected_release_day){
-            cardText2.innerText = "Expected Release: " + month[task.expected_release_month] + " " + task.expected_release_day + ", " + task.expected_release_year;
+            cardText2.innerText = dateString + month[task.expected_release_month] + " " + task.expected_release_day + ", " + task.expected_release_year;
         } else if(task.expected_release_month){
-            cardText2.innerText = "Expected Release: " + month[task.expected_release_month] + " " + task.expected_release_year;
+            cardText2.innerText = dateString + month[task.expected_release_month] + " " + task.expected_release_year;
         } else if (task.expected_release_year){
-            cardText2.innerText = "Expected Release: " + task.expected_release_year;
+            cardText2.innerText = dateString + task.expected_release_year;
         } else {
-            cardText2.innerText = "Expected Release: " + (task.expected_release_year || inputYear.value);
+            cardText2.innerText = dateString + (task.expected_release_year || inputYear.value);
         }
         
         cardText2.className = 'card-text';
@@ -290,7 +295,7 @@ const searchingArray = []
 const guidArray = []
 
 async function searchArray (){
-    let searchUrl = await `https://www.giantbomb.com/api/games/?api_key=0db701c3bf4b84594cb0b2282c255345428c9a87&format=json&filter=expected_release_year:2017,2018,2019,2020,2021,2022,2023`;
+    let searchUrl = await `https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/games/?api_key=0db701c3bf4b84594cb0b2282c255345428c9a87&format=json&filter=expected_release_year:2017,2018,2019,2020,2021,2022,2023`;
     const response = await get(searchUrl);
     response.results.map(element => {
         searchingArray.push(element.name);
@@ -323,8 +328,7 @@ search_btn.addEventListener("click", async function(event) {
 
 
 
-
-
+buildCards()
 
 
 
