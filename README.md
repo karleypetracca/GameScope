@@ -1,14 +1,25 @@
-## GameScope
-GameScope allows a user to input a date and see what games will be released during
-that time.  Additional functionality will be made available as time permits.
+# GameScope
+GameScope provides users the ability to view what games will be released via
+user-specified filters. Users can additionally click on games to view more information
+about the game along with news articles (if available).
 
-Note: requires CORS Unblocker extension or proxy to use
+**Note:** requires CORS Unblocker Chrome extension or other proxy to use
+
+___
 
 
-## Created by:
-Dustin Myers, Geordy Bird and Karley Petracca
+## Authors:
+* Dustin Myers - [GitHub](https://github.com/dustinblainemyers)
+* Geordy Bird - [GitHub](https://github.com/gmbirdiv) 
+* Karley Petracca - [GitHub](https://github.com/karleypetracca)
 
 
-## API Reference
-* **GiantBomb:** https://www.giantbomb.com/api/documentation/
+## API tools used
+* [GiantBomb](https://www.giantbomb.com/api/documentation/) (3 endpoints)
+* [News API](https://newsapi.org/docs) (1 endpoint)
 
+
+## Additional tools used
+* [Bootstrap](https://getbootstrap.com/)
+* [JQuery](https://api.jquery.com/)
+* [JQuery UI Library](https://jqueryui.com/)
