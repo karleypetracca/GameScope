@@ -69,7 +69,7 @@ async function filterQuery(gameQuery) {
         } else {
             gameQuery.forEach(element => {
                 if (element.expected_release_month == inputMonth.value) {
-                     monthHasReleases = true;
+                    monthHasReleases = true;
                     monthsFiltered.push(element);
                 }
             })
@@ -323,13 +323,3 @@ search_btn.addEventListener("click", async function(event) {
 })
 
 buildCards()
-
-
-
-
-
-
-
-
-
-
