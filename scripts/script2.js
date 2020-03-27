@@ -65,7 +65,7 @@ window.onload = async function() {
     $("#game_release_date").html(releaseDate);
     $("#game_platform").html(platformList);
     $("#game_long_description").html(gameObject.description);
-    $("#game_long_description a").href("#");    
+    $("#game_long_description a").attr("href", "#");    
 }
 
 // populate news cards if news found
@@ -117,7 +117,14 @@ async function buildCards(gameObject) {
 // lookup into news API based on game name
 async function newsLookup(gameName) {
     let newsResponse = [];
-    let apiUrl = await `http://newsapi.org/v2/everything?qInTitle=\"${gameName}\"&from=2020-01-30&sortBy=publishedAt&domains=gamespot.com,ign.com,androidcentral.com,comicbook.com,siliconera.com,playstationlifestyle.net,vgchartz.com,imore.com,windowscentral.com&apiKey=0ab09aaa807c43ef9016db62cfa6304d&language=en`;
+
+    let currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 30);
+    let newsMonth = ("0" + currentDate.getMonth() + 1).slice(-2),
+        newsDay = ("0" + currentDate.getDate() + 1).slice(-2);
+    let newsDate = currentDate.getFullYear() + '-' + newsMonth + '-' + newsDay;
+
+    let apiUrl = await `http://newsapi.org/v2/everything?qInTitle=\"${gameName}\"&from=${newsDate}&sortBy=publishedAt&domains=gamespot.com,ign.com,androidcentral.com,comicbook.com,siliconera.com,playstationlifestyle.net,vgchartz.com,imore.com,windowscentral.com&apiKey=0ab09aaa807c43ef9016db62cfa6304d&language=en`;
     const response = await get(apiUrl);
 
     try {
