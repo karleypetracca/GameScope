@@ -28,6 +28,10 @@ body {
     font-weight: bold;
 }
 
+#lastGameLink {
+    font-size: 1.2rem;
+}
+
 #game_info_container {
     margin: auto;
     padding: 0 auto;
